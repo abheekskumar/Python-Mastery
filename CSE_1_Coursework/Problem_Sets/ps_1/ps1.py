@@ -99,7 +99,7 @@ def problem3_v2():
     
 
 if __name__ == "__main__":
-    problem3()
+    problem2()
     """print("testing:")
     s = 'azcbobobegghakl'
     sub_string= ""
