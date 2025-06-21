@@ -1,7 +1,0 @@
-"""
-Newton Raphson:
-
-
-
-
-"""
