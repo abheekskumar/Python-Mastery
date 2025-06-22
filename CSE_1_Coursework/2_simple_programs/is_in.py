@@ -23,3 +23,4 @@ if __name__ == "__main__":
     aStr = "bbcdkkknortuuvw"
 
     print(isin('f', 'bdefhllmsuvvvxyyyyz'))
+    print(isin(char,aStr))
