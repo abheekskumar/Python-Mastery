@@ -31,8 +31,5 @@ def main1():
         return sum(grades)/len(grades)
 
 
-
-
-
 if __name__ == "__main__":
     main1()

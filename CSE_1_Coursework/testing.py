@@ -22,25 +22,3 @@ def memo_fib(n,d= {1:1,2:1}):
         d[n] = ans # add to dict
         return ans # return to above recursive call
     
-def memo_fact(n,d = {0:1,1:1}):
-    """
-    Factorial function with memoization.
-    """
-    global numMemoFact 
-    numMemoFact +=1
-    if n in d:
-        return d[n],d
-    else:
-        ans = n*memo_fact(n-1,d)
-        d[n] = ans
-        return ans
-
-numMemoFact = 0
-a,b = memo_fact(15)
-print()
-print(a,b)
-print(numMemoFact)
-numMemoFact = 0
-c,d = memo_fact(25,b)
-print(c,d)
-print(numMemoFact)
