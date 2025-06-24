@@ -9,8 +9,10 @@ def recur_fib(n):
     Recursive fibonacci
     Proposed time complexity: 2^n due to 2 recursive calls
     """
-    if n ==1 or n == 0:# base case
+    if n ==1 :# base case
         return 1
+    elif n ==2 :
+        return 2
     else: # recursive case
         return recur_fib(n-1) + recur_fib(n-2)
     # very ineffcient
@@ -30,10 +32,11 @@ def dict_fib(n,d):
         d[n] = ans # add to dict once base case(added to dict) are hit 
         return ans # return and cascade it back
     
-d = {1:1,0:1}
-n = 35
+d = {1:1,2:2}
+n = 2
 print(dict_fib(n,d))
 print("Number of times Dict/Memo version called:",numMemoFib)
 
 print(recur_fib(n))
 print("Number of Times Recur version Called:",numRecurFib)
+
