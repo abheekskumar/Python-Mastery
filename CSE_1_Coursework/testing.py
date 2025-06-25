@@ -22,3 +22,15 @@ def memo_fib(n,d= {1:1,2:1}):
         d[n] = ans # add to dict
         return ans # return to above recursive call
     
+dict1 = {'a':2,'b':3,"c":0}
+
+for letter in dict1:
+    print(letter)
+for letter in dict1.keys():
+    print(letter)
+for letter in dict1.keys():
+    if dict1[letter]==0:
+        print(letter)
+        print(dict1[letter])
+        del dict1[letter] 
+        print(dict1)

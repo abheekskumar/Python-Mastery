@@ -48,5 +48,5 @@ if __name__ == "__main__":
     print(f"Number of times Recursive Fib was called is {numRecur}")
     print(iter_fibonacci(n))
     print(f"Number of times iterative fibonacci loop ran is {numIter}")
-    print(memo_fib(n,d))
+    print(memo_fib(n))
     print(f"Number of times memoization fibonacci recursive calls = {numMemo}")

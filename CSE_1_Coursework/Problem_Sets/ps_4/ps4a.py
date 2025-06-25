@@ -71,7 +71,14 @@ def getWordScore(word, n):
     n: integer (HAND_SIZE; i.e., hand size required for additional points)
     returns: int >= 0
     """
-    # TO DO ... <-- Remove this comment when you code this function
+    wordScore = 0
+    for cha in word: # for each character, add associated points
+        wordScore += SCRABBLE_LETTER_VALUES[cha]
+    wordScore = wordScore*len(word) # multiplied by the len of the word
+    if len(word) == n: # Bonus points
+        wordScore += 50
+    return wordScore
+        
 
 
 
@@ -142,8 +149,20 @@ def updateHand(hand, word):
     hand: dictionary (string -> int)    
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
-
+    hand_copy = dict(hand)
+    for char in word:
+        hand_copy[char] -=  1
+    try:
+        for letter in hand_copy:
+            if hand_copy[letter] ==0:
+                del hand_copy[letter] 
+    except RuntimeError:
+        print("Runtime Error")
+        pass
+    except:
+        print(Exception," has been thrown.")
+    return hand_copy
+[]
 
 
 #
