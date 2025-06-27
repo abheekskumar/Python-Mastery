@@ -1,1 +1,1 @@
-# basic sorting testing in python
+# basic sorting in python
