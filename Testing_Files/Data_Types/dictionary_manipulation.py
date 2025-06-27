@@ -81,11 +81,14 @@ print(firstDictionary.clear())
 print(firstDictionary.copy())
 print(firstDictionary.items())
 print(firstDictionary.fromkeys(L1)) # creats a new dict with iterables of keys and values
-print(firstDictionary.setdefault("balls",None)) # 
+print(firstDictionary.get("balls","Value")) # this justs RETURNS none if balls isn't found
+print(firstDictionary.setdefault("balls","value")) # this SETS the value as "value" if balls isn't found
 print(firstDictionary.popitem()) # removes the last entered element 3.7+
 
 # pretty printing dictionaries using json module:
 
 import json
 firstDictionary = {'name': 'Alice', 'age': 25, 'hobbies': ['reading', 'cycling']}
+print(json.dumps(firstDictionary))
+print(json.dumps(firstDictionary,indent =1))
 print(json.dumps(firstDictionary,indent = 2))
