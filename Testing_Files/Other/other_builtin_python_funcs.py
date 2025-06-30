@@ -53,6 +53,9 @@ print(type(f))
 print(list(f))
 print(tuple(f)) # not printed due to same reason
 
+
+
+
 # shallow copy vs deep copy:
 import copy 
 l1 = list("Hello World.")

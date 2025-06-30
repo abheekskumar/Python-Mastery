@@ -25,7 +25,7 @@ print(squared_dictionary)
 # set comprehensions:
 print("Set Comprehensions:")
 unique_letters = {cha for cha in "hello world" if cha.isalpha()}
-print(type(unique_letters)) # set
+print(type(unique_letters)) # object class of set
 print(unique_letters)
 print(unique_letters)
 
