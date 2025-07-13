@@ -1,6 +1,6 @@
 import random
 
-
+#print(__name__) prints __main__ if executed from here, hierarchies other wise
 
 class Animal:
     """Creates an instance of an Animal."""
@@ -27,6 +27,9 @@ class Animal:
         """Sets name of animal"""
         self.age = newage
 
+
+
+
 class Cat(Animal):
     # every attribute is inherited from Animal
     def speak(self): # addes new functionality
@@ -34,12 +37,20 @@ class Cat(Animal):
     def __str__(self): # overrides the previsou __str__ definition 
         return "Cat:"+str(self.name) + ":" + str(self.age)
     
+
+
+
 class Rabbit(Animal):
     def speak(self):
         print("Meep")
     def __str__(self):
         return "Rabbit:" + str(self.name) + ":" + str(self.age)
+    
+
+
 class Person(Animal):
+    def speak(self):
+        print(f"{self.name} is a person.")
     def __init__(self,name,age):
         Animal.__init__(self,age) # uses Animal;s constructor to set age 
         Animal.set_name(self,name) # uses Animal's set_name method to set name
@@ -59,13 +70,19 @@ class Person(Animal):
             print("Age Difference:",diff)
         else:
             print("Age Difference:",-diff)
+
+
+
 class Person_copy(Person):
     pass # inherits everythin from Person and doesn't add/overwrite something
+
+
+
 
 class Student(Person):
     def __init__(self,name,age,major=None): # initiailze a student
         Person.__init__(self,name,age) # use Person's constructor, which uses animal constructor
-        self.major = major
+        self.major = major # have a new attribute that assigns major
     def change_major(self,newmajor):
         self.major = newmajor
     def speak(self):
@@ -85,30 +102,43 @@ class Student(Person):
 
 
 
-    
-jelly = Cat(1)
-print(jelly.get_name())
-jelly.set_name("JellyBelly")
-print(jelly) # uses cat's __str__ definition
-print(Animal.__str__(jelly)) # uses Animal's __str__ definition
+if __name__ =="__main__":
+    jelly = Cat(1)
+    print(jelly.get_name())
+    jelly.set_name("JellyBelly")
+    print(jelly) # uses cat's __str__ definition
+    print(Animal.__str__(jelly)) # uses Animal's __str__ definition
 
 
-blob = Animal(1)
-print(blob)
-blob.set_name()
-print(blob)
-jelly.speak()
-Peter = Rabbit(23)
-Peter.speak()
+    blob = Animal(1)
+    print(blob)
+    blob.set_name()
+    print(blob)
+    jelly.speak()
+    Peter = Rabbit(23)
+    Peter.speak()
 
-#blob.speak() Error since speak isn't from Animals
-
-
-pa = Person("George",23)
-pb = Person("Elizabeth",26)
+    #blob.speak() Error since speak isn't from Animals
 
 
-Person.age_diff(pa,pb) # same thing called differently
-pa.age_diff(pb) # ""
-Cat.speak(pa)# Just prints that, does nothing with self
-print(Cat.__str__(pa)) # passes a person into Cat's __str__ and only uses that.
+    pa = Person("George",23)
+    pb = Person("Elizabeth",26)
+
+
+    Person.age_diff(pa,pb) # same thing called differently
+    pa.age_diff(pb) # ""
+    Cat.speak(pa)# Just prints that, does nothing with self
+    print(Cat.__str__(pa)) # passes a person into Cat's __str__ and only uses that.
+
+
+    Abheek = Student("Abheek",19) # creating a new object
+
+    Abheek.speak() # traditional way of using speak
+    Student.speak(Abheek) # uses same speak def in a differnt way
+
+    Person.speak(Abheek) # uses other speak def
+
+    print("*"*200)
+    print("using the random speak for a student class instance")
+    for _ in range(1,101):
+        Abheek.speak()
