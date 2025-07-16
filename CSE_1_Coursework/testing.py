@@ -35,3 +35,5 @@
 #         del dict1[letter] 
 #         print(dict1)
 
+x = y =0
+print(x,y)
