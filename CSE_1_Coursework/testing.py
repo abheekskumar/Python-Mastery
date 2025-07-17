@@ -35,5 +35,24 @@
 #         del dict1[letter] 
 #         print(dict1)
 
-x = y =0
-print(x,y)
+# x = y =0
+# print(x,y)
+
+
+
+# enumeration
+L = "Hello World!" 
+for idx,value in enumerate(L):
+    print(idx,value)
+
+# D = 
+# zip
+L1 = [element for element in range(0,11)]
+L2 = [element for element in range(11,22)]
+for v1, v2 in zip(L1,L2): # for both values
+    print(v1,v2)
+
+# for index along with elements from multiple lists:
+for idx, (v1,v2) in enumerate(zip(L1,L2)):
+    print(idx,v1,v2)
+
