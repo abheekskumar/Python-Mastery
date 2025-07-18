@@ -27,6 +27,14 @@ How do we measure an algorithm's efficiencies?
     -ignores additive constants
     -ignore multiplicative constants    
 
+    Big Theta Notation :
+    - the big theta bound is a lower and upper bound on the growth of some function
+    - theta bounds are preferred because they are "tight", they talk about not only the worst case, but 
+    also the best case FOR a particular input.
+    - since this is more input dependent(for the lower bound) than the big Oh notation, we use theta(input, not 
+    just expressed on terms of n)
+    - but also use the same rules( law of dominance, law of multiplication, law of addition)
+
 """
 
 def iter_fib(n):

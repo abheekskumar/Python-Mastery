@@ -60,4 +60,26 @@ O(n) - index, store, length, delete, iteration
 average case:
 O(1) - index , store, delete, iteration
 
+
+Why dictionaries are as such:
+- uses a hash table
+- converts the key into an integer using a hash function
+- uses that integer as an index into the list
+
+Hence in the best case/ average case:
+- using that integer as the index into a list: constant access time
+- finding the value associated with they key: constant access time
+
+But why is there a worst case?
+
+How do hash tables work:
+each key converts into binary form that is later kept in a hash table? No, wayyy to space inefficient
+A better approach is allowing hash collisions.
+Properties of a good hash function:
+- Maps domain of interest to integers between 0 and size of hash table
+- the hash value is fully determined by value being hashed(nothing random)
+- Distribution of values is uniform. 
+- the keys must be hashable: immutable and never change.
+
+
 """

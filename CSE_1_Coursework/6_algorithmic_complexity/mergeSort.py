@@ -7,8 +7,6 @@ divide and conquer approach:
     look at the first element in each, move the smaller one into the end of result
     when one list is empty, just copy the rest of the list
 
-
-
 Complexity:
 at the recursive level:
 O(n)
