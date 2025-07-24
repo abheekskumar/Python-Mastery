@@ -32,11 +32,22 @@ def dict_fib(n,d):
         d[n] = ans # add to dict once base case(added to dict) are hit 
         return ans # return and cascade it back
     
+def memo_fib(n,d = {0:1,1:1}):
+    if n in d:
+        return d[n]
+    else:
+        ans = memo_fib(n-1,d) + memo_fib(n-2,d)
+        d[n] = ans
+        return ans
+    
 d = {1:1,2:2}
-n = 2
+n = 50
 print(dict_fib(n,d))
+print(memo_fib(n))
 print("Number of times Dict/Memo version called:",numMemoFib)
 
 print(recur_fib(n))
 print("Number of Times Recur version Called:",numRecurFib)
+
+
 

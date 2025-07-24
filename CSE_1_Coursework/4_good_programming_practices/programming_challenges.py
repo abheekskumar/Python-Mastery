@@ -15,7 +15,7 @@ General:
     Modularize program
     Check conditions on inputs/outputs(assertions)
 
-##Testing:
+## Testing:
 
 Classes of testing:
     Unit Testing: test each function seperately
@@ -38,7 +38,7 @@ Glass box testing:
     called path complete if every potential path through code is tested atleast once
     you should still absolutely look at boundary conditions
     guidelines:
-        braches
+        branches
         for loop : look for each case of flow of control
         while loop : look for each case of flow of control
 
@@ -100,12 +100,11 @@ Debugging:
         repeat till you narrow down the options
         keep a record of all the experiments run, don't be redundant
 
-        Binary Search:
+        Binary Search: go through and test the flow of control in the program
+        at the middle, then at the middle of each of those subsections and so on.
 
 ## Other remarks:
     make sure to have version control to have an idea of what the previous code was
     (when you're debugging a massive piece of program)
     ask 'why is the code doing what it is?', not 'why is the code doing not what I want?'
-
-
 """

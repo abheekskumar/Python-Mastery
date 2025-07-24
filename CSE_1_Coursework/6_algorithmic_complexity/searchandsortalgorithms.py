@@ -3,16 +3,17 @@ Search algorithms:
 
 method of finding an item or a group of items with a specific property within a collection of items.
 
-collection could be implicit:
+collection could be implicit(you define the search space):
     exhaustive enumeration
     bisection search
     newton-raphson
 collection could be explicit:
-    a student record within a stored collecition of data.
+    a student record within a stored collecition of data(search space is already defined).
 
 Linear search:
     brute force search
     list does not have to be sorted
+    O(n) operation
 
 Bisection Search:
     list must be sorted
@@ -22,14 +23,15 @@ Bisection Search:
 
 # linear search:
 def linear_search(L,e):
-    for i in range(len(L)):
-        if e == L[i]:
+    for ele in L:
+        if e == ele:
             return True
     return False
 """
 worst case:
 O(len(L))*O(1) = O(len(L)) or O(n) where n = len(L)
 O(1) comes from e== L[i], which assumes that one can retrieve an element from the list in constant time:
+
 if L = list[int] : all the ints are next to each other in memory and say that each takes 4 bytes of space.
     we can just count from the start(base) to the ith element by doing: base + 4*i
 
@@ -50,6 +52,16 @@ def serach(L,e):
     return False
 # a bit better for average case, but in the worst case, it's still linear O(n)
 
+def serach3(L,e): 
+    if L[-1] < e or L[0] > e:
+        return False
+    for ele in L:
+        if ele == e:
+            return True
+        elif ele > e:
+            return False
+    return False
+
 
 # bisection 1:
 def bisectionSearch1(L,e):
@@ -68,13 +80,14 @@ def bisectionSearch1(L,e):
         else:
             return bisectionSearch1(L[half+1:],e)
 """
+size of the array can be described by n/(2^i)
 This stops when 1 = n/(2^i)
 n = 2^i
 i = log2(n), where n is the length of the list
 O(log(n))
 
 In this implementation of binary search, since we make a copy, it isn't just log(n) complexity
-this is nLog(n)
+this is nLog(n)  
 
 """
 def bisectionSearch2(L,e):
@@ -93,7 +106,7 @@ def bisectionSearch2(L,e):
             else:
                 return bisectionSearch2Helper(L,e,low,half-1) # -1 to exclude that element
         else: # element is in the upper half
-                return bisectionSearch2Helper(L,e,half+1,high) # -1 to exclude that element
+                return bisectionSearch2Helper(L,e,half+1,high) # +1 to exclude that element
             
     ######
     # using a helper cause you cannot call this recursively with this implementation otherwise

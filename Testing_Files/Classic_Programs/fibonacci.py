@@ -1,6 +1,7 @@
 numRecur=0
 numIter = 0
 numMemo= 0
+
 def recur_fibonacci(num1):
     # counter 
     global numRecur
@@ -24,6 +25,20 @@ def iter_fibonacci(n):
         a = b
         b = ans
     return ans # return the final ans
+
+def generatorFibonacci():
+    """ Creates a generator that calculates fibonacci numbers one by one when
+    called with the __next__ method."""
+    fib_1 = 1 # fib(n-1): initial case of 1
+    fib_2 = 0 # fib(n-2): initial case of 0
+    ans = 0
+    while True:
+        ans = fib_1 + fib_2
+        yield ans
+        fib_2 = fib_1
+        fib_1 = ans
+
+
 
 def memo_fib(n,d={1:1,0:1}): # default d has base conditions
     """
@@ -50,3 +65,8 @@ if __name__ == "__main__":
     print(f"Number of times iterative fibonacci loop ran is {numIter}")
     print(memo_fib(n))
     print(f"Number of times memoization fibonacci recursive calls = {numMemo}")
+
+    genFib = generatorFibonacci()
+    for _ in range(n-1):
+        genFib.__next__()
+    print(genFib.__next__())

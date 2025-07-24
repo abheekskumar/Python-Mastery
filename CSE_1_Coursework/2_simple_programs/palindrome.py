@@ -45,7 +45,9 @@ def iter_palindrome(s1):
     for i in s2:
         if i in valid_chars:
             l1.append(i)
-    half_way = int(len(l1)/2)
+
+
+    half_way = len(l1)//2
     if len(l1)%2==0:
         # even number of characters
         num_loop = 0
@@ -71,8 +73,56 @@ def iter_palindrome(s1):
                     else:
                         break
             num_loop +=1 
+
+    return num_loop == len(s1)
+
+import string
+def iterativePalindrome(string1):
+    """Returns true if a given string1 is a palindrome or not."""
+    # string cleanup
+    string2 = string1.lower()
+    validChars = string.ascii_lowercase
+    cleanString = ""
+    for char in string2:
+        if char in validChars:
+            cleanString += char
+
+    ptr1 = 0
+    ptr2 = len(cleanString)-1
+    while (ptr1 != ptr2):
+        if cleanString[ptr1] == cleanString[ptr2]:
+            pass
+        else:
+            return False
+        ptr1 +=1
+        ptr2 -=1
+    return True
+
+def recursivePalindrome(string1: str) -> bool:
+    """Returns true if string1 is a palindrome."""
+    def recursivePalindromeHelper(s):
+        if len(s) < 2: # if length of string is (1 or 0), it's a palindrome
+            return True # positive base case
+        
+        else:
+            if s[0] == s[-1]:
+                return recursivePalindromeHelper(s[1:-1]) # check the rest of the string
+            else:
+                return False # negative base case
+    
+    #-- 
+    # clean string
+    validChars = string.ascii_lowercase
+    cleanString = ""
+    for char in string1.lower():
+        if char in validChars:
+            cleanString += char
+    return recursivePalindromeHelper(cleanString)
+
+
 if __name__ == "__main__":
     s1 = "racecar"
-    recur_main_palindrome("ballab")
+    # recur_main_palindrome("ballab")
     recur_main_palindrome(s1)
-    iter_palindrome(s1)
+    # iter_palindrome(s1)
+    print(iterativePalindrome(s1))

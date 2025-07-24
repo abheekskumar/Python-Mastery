@@ -1,3 +1,4 @@
+from typing import List
 """
 Insertion sort is a sorting algorithm that builds the sorted list
 one element at a time from an unsorted list.
@@ -53,9 +54,10 @@ def insertion_sort_one(unsorted_array) -> list:
                 # than any of the element in the list, add it to the end of sorted array.
                 sorted_array.append(key)
             # if it isn't, the iterator will just skip to the next index
-    
-    return sorted_array
 
+    return sorted_array
+ar = [2,6,1,6,34,2345,72,43,673,32]
+# print(insertion_sort_one(ar))
 def insertion_sort_tb(ar) -> list:
     """
     Textbook implementation of insertion sort.
@@ -72,13 +74,47 @@ def insertion_sort_tb(ar) -> list:
             j = j-1
         else:
             array[j+1] = key # adding the key
+
     return array
-
-
-
-
-ar = [2,6,1,6,34,2345,72,43,673,32]
-print(insertion_sort_one(ar))
+# ar = [2,6,1,6,34,2345,72,43,673,32]
+# print(insertion_sort_one(ar))
 print(insertion_sort_tb(ar))
+
+from typing import List 
+
+
+def insertionSort(arr:List[int])->list:
+    """ Returns a copy of arr that is sorted using insertion sort."""
+    
+    for idx1 in range(1,len(arr)): # starts from 1 because 1st element is already sorted in the subarray
+        key = arr[idx1]
+        idx2 = idx1-1
+
+        while((idx2 >=0) and (arr[idx2] > key)): # loop used to shift elements NOTE: ensure that idx2>=0 condition is checked first
+            arr[idx2+1] = arr[idx2] # shifting elements to the right
+            idx2 -=1
+        # when 1st element or key is bigger than the element in the subarray, we've found the appropriate spot
+        arr[idx2+1] = key # add key to subarray, idx2+1 is used since we've subtracted it on the last iteration in the loop
+            # note: the idx2+1 spot is kept at the spot that is non-essential, and can be written over
+            # what that means is that we've made a copy of that element before hand
+    return arr
+
+# leetcode implementation:
+
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        for i in range(1, len(nums)):
+            key = nums[i]
+            j = i - 1
+
+            # Shift elements of nums[0..i-1], that are greater than key
+            while j >= 0 and nums[j] > key:
+                nums[j + 1] = nums[j]
+                j -= 1
+
+            nums[j + 1] = key
+        
+        return nums
+
                 
 

@@ -12,7 +12,8 @@ LEGB:
 - Local namespace:
 
 - Enclosing namespace:
-    I think this refers to recursive calls?
+    if in nested loops, this refers to the scope above the local namespace, but before the 
+    global namespace
 - Global namespace:
 
 - Built-in namespace

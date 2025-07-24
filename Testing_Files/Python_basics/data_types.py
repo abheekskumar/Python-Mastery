@@ -3,7 +3,8 @@
 # strings  immutable
 string1 = "This is a string."
 
-string2 = string1[-1:-len(string1):-1]
+string2 = string1[-1:-len(string1):-1] # reversing a string
+string2 = string1[::-1] # reversing a string
 string2.removesuffix("string.")
 print(string2)
 
@@ -31,11 +32,7 @@ print(tuple1)
 set1 = {1,2,34}
 print(set1)
 
-
-
-
-
-
+# Tokens/Lexical units/ smallest units of a program:
 # identifiers variable names
 num1 = 2
 x = 234
@@ -44,8 +41,6 @@ u = complex(3,2)
 print(u.__class__)
 print(type(u))
 print(id(u))
-
-
 
 # keywords
 import math
@@ -78,6 +73,7 @@ def main2():
     print(__name__)
     print("lmao")
     print(inspect.currentframe)
+    
 print(__name__)
 if __name__ == "__main__":
     main2()

@@ -1,4 +1,4 @@
-def genPrimes() -> int:
+def genPrimes():
     """Generates a list of prime numbers one by one when the __next__ method is called."""
     primes = []
     num = 2
@@ -16,8 +16,6 @@ def genPrimes() -> int:
         # program doesn't hit a prime, 
         num +=1
 
-# gen = genPrimes()
-# for _ in range(500):
-#     print(gen.__next__())
-
-
+gen = genPrimes()
+for _ in range(500):
+    print(gen.__next__())

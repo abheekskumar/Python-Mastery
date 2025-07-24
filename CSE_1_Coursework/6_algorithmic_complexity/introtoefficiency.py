@@ -11,8 +11,8 @@ How do we measure an algorithm's efficiencies?
 
     constant - doesn't depend on input
     linear - scales with input
-    quadratic - scales twice as large with input
-    logarithmic - scales, but then slows down 
+    quadratic - scales but faster
+    logarithmic - scales, but then slows down at each step
     linear* logarithmic - worse than linear, but better than quad
     exponenetial - scales terribly
 
@@ -34,6 +34,10 @@ How do we measure an algorithm's efficiencies?
     - since this is more input dependent(for the lower bound) than the big Oh notation, we use theta(input, not 
     just expressed on terms of n)
     - but also use the same rules( law of dominance, law of multiplication, law of addition)
+
+    Big Omega Notation:
+    - best case for an algorithm. 
+    - defines only the lower bound.
 
 """
 

@@ -7,6 +7,8 @@ except ZeroDivisionError:
 
 else:
     print("This is printed as long as there is no exception thrown")
+finally:
+    print("This is always executed no matter what.")
 
 
 print("This is just normal flow of control.")

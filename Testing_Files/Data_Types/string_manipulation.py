@@ -15,6 +15,10 @@ for idx in range(len(s1)): # traversing over each index
     pass
 for idx in range(-1,-len(s1)-1,-1): # reversing a string by negative indexing
     print(s1[idx])
+
+# traversal with enumerate:
+for idx, ele in enumerate(s1):
+    print(f"{idx}:{ele}")
 # String Operators:
 
     # concatenation
@@ -51,6 +55,8 @@ It's a part of the string containing some contiguous characters
 you can slice out of bounds(it won't return an error)
 
 """
+print(s1[0:1000000000]) # no error
+# print(s1[])
 
 s2 = s1 [0:3] # [)- first index is included, the second index is excluded; it returns a string
 print(s2)
@@ -61,6 +67,8 @@ print(s1)
 print(s1[0:-1]) # the -1 is not actually included, if you want to inlucde it:
 print(s1[0:]) # this includes all chars
 print(s1[::-1]) # to reverse a string
+print(s1[0:len(s1):-1],"CHECK THIS") # return nothing it cannot traverse that with a -1 step
+print(s1[-1:-(len(s1))-1:-1]) # to replace s1[::-1]
 print("\n")
 print(s1[:234]+s1[234:]) # 234 is literally out of bounds s1[:n] + s1[n:] returns the original string
 print()
@@ -72,14 +80,12 @@ print(s1[0:235234]) # no error
 s1 = "Hello world, this is Abheek Satishkumar!"
 s2 = "This is string number two."
 s3 = "This is string number three."
+# print("1".isascii())
+# s1.index(str) # returns the first instance where substring str is found ; if not throws ValueError
+# s1.find(str) # retunrs the first instance where substring str is found; if not -1
+# s1.count(str) # returns the no. of times substring str was non-overlapping
+s1.encode() # prefixes the string with "b"
 
-s1.index(str) # returns the first instance where substring str is found ; if not throws ValueError
-s1.find(str) # retunrs the first instance where substring str is found; if not -1
-s1.count(str) # returns the no. of times substring str was non-overlapping
-
-
-
-s1.encode()
 
 s1.startswith(str,tuple) # returns True if string starts with substring str or a tuples of substrings; false otherwise
 s1.endswith(str,tuple) # returns True if string ends with substring str or a tuple of substrings; false otherwise

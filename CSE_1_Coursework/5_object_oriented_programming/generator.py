@@ -40,6 +40,7 @@ def Fib():
         fibn_1 = next
 
 inffib = Fib()
+print(type(inffib))
 print(inffib.__next__())
 print(inffib.__next__())
 print(inffib.__next__())

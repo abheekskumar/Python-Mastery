@@ -57,6 +57,7 @@ print(c.diameter)
 c.radius = 10
 print(c.radius)
 print(c.diameter)
+# c.diameter = 23 # no setter property so it results in an error
 
 # classmethod
 print("*"*200,"@classmethod:",sep = "\n")

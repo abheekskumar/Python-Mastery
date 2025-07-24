@@ -2,7 +2,7 @@ def bisection_squareroot():
     sqr = int(input("Enter an integer:"))
     low = 0
     high = sqr
-    guess = (low + high)/2
+    # guess = (low + high)/2
     epsilon = 0.1
 
     while abs((guess**2)-sqr) > epsilon: # negation of true condition # end sceanario
@@ -73,6 +73,7 @@ def guess_my_num():
         print(e)
         print(traceback.format_exc())
 import math
+
 def guess_my_num_v2():
     # guess based on 
     print("Let's play a game where I guess your number.")

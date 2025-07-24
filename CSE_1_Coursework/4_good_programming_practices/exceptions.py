@@ -33,7 +33,7 @@ def persistent_input():
         try:
             n = int(input("Please enter an integer:"))
             break # throws us out of while loop
-        except ValueError: # this is hit if line 32 raises an error
+        except ValueError: # this is hit if line 34 raises an error
             print("Input is now an integer; Try again!")
     print("Correct input of an integer!")
 
@@ -52,7 +52,8 @@ def control_input():
             if new != '\n':
                 addIt = new[:-1].split(",")
                 data.append(addIt)
-        file_handle.close()
+        file_handle.close() # having this in else is the best,
+        # in finally, it would throw an error once again.
 
     gradesData = []
     try:

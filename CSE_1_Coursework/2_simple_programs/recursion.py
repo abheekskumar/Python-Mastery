@@ -4,7 +4,7 @@
 # = a + (a + a*(b-2)).. and so on
 # the base case(recursion end case) is when its a*1( the last multiplicative case) 
 def mult_recursion(a,b):
-    print(f"In {__name__},  function is running. ")
+    print(f"In {__name__},  function is running. ") # __name__ depends on module, not a function
     if b == 1:#base case # end condition
         return a
     else:

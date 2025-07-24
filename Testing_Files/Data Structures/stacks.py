@@ -5,27 +5,34 @@ class Stack:
         self.stack = []
     def __str__(self):
         res = ""
-        for idx in range(len(self.stack)-1,-1,-1):
-            res += str(self.stack[idx])
+        for ele in self.stack[::-1]:
+            res += str(ele)
             res += "\n"
         return res
 
     def push(self,element) -> None:
         """ Pushes element onto the top of the stack"""
         self.stack.append(element)
-    def pop(self):
+
+    def pop(self) -> int:
         """ Removes and returns the element on the top of the stack."""
         try:
             return self.stack.pop()
         except Exception:
             return "Stack is empty."
-    def peak(self):
+        
+    def peak(self) -> int: #AKA TOP
         """Returns the topmost element of the stack."""
         try:
             return self.stack[-1]
         except:
             return "Stack is empty."
+        
+    def isEmpty(self) -> bool:
+        return len(self.stack) == 0
     
+    def size(self) -> int:
+        return len(self.stack)
 
 s1 = Stack()
 s1.push(1)
@@ -67,5 +74,12 @@ print(s2)
 popStack(s2)
 print(s2)
 
+# using collections
+from collections import deque
+# deque is double ended que, safer and faster approach.
+stack1 = deque()
+stack1.append() # push
+stack1.pop() # pop
 
+# or use this function implemented in OOP
     

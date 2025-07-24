@@ -5,10 +5,14 @@ print(type(setOne)) # this is actually a dictionary
 print(sys.getsizeof(setOne))
 
 
-setOne = {3,2} # now it becomes a set
+setOne = {3,2} # redefinition with only stand alone elements, not key:value pairs, 
+ # hence a set
 print(setOne)
 print(type(setOne))
 print(sys.getsizeof(setOne))
+
+# to directly construct a set:
+setTwo =set() # use the set constructor
 
 # iteration through a set:
 print("Iteration:")

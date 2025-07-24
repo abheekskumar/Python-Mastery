@@ -1,3 +1,4 @@
+from typing import List
 """
 Merge Sort:
 divide and conquer approach:
@@ -53,26 +54,74 @@ def mergeSort(L):
             return mergeSortMerger(L1,L2)
     return mergeSortRecur(L)
 
+def mergeSortReverse(L:list)-> None:
+    """ Returns a sorted L using a merge sort algorithm. [in O(nlog(n))]
+    """
 
-def modSwapSort(L): 
-    """ L is a list on integers """
-    print("Original L: ", L)
-    for i in range(len(L)):
-        for j in range(len(L)):
-            if L[j] < L[i]:
-                # the next line is a short 
-                # form for swap L[i] and L[j]
-                L[j], L[i] = L[i], L[j] 
-                print(L)
-    print("Final L: ", L)
+    def merge(L1,L2):
+        """ Returns a sorted merged list L1 and L2"""
+        ptr1 = 0
+        ptr2 = 0
+        res = []
+        # until the either of the lists run out of elements
+        while (ptr1 < len(L1)) and (ptr2 < len(L2)):
+            if L1[ptr1] < L2[ptr2]: # reverse
+                res.append(L2[ptr2])
+                ptr2 +=1
+            else:
+                res.append(L1[ptr1])
+                ptr1 +=1
+        
+        # for the rest of the elements:
+        while (ptr1 < len(L1)):
+            res.append(L1[ptr1])
+            ptr1 +=1
+        while (ptr2 < len(L2)):
+            res.append(L2[ptr2])
+            ptr2 +=1
+
+        return res # return combined list
+
+    def mergeRecursive(L):
+        """ Recursively break down the list into each sublist"""
+        if len(L) < 2:
+            return L
+        
+        half = len(L)//2
+        left = mergeRecursive(L[:half])
+        right = mergeRecursive(L[half:])
+
+        return merge(left,right)
     
-L = [636,23,523,975,33,62,34,626,63]
-print(mergeSort(L))
-print(modSwapSort(L))
-    
-    
-    
+    return mergeRecursive(L)
 
+# leetcode implementation:
+class Solution:
+    def sortArray(self, nums: List[int]) -> List[int]:
+        def mergeSort(arr: List[int]) -> List[int]:
+            if len(arr) <= 1:
+                return arr
 
+            mid = len(arr) // 2
+            left = mergeSort(arr[:mid])
+            right = mergeSort(arr[mid:])
+            return merge(left, right)
 
+        def merge(left: List[int], right: List[int]) -> List[int]:
+            merged = []
+            i = j = 0
 
+            while i < len(left) and j < len(right):
+                if left[i] <= right[j]:
+                    merged.append(left[i])
+                    i += 1
+                else:
+                    merged.append(right[j])
+                    j += 1
+
+            # Append any remaining elements
+            merged.extend(left[i:])
+            merged.extend(right[j:])
+            return merged
+
+        return mergeSort(nums)

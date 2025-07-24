@@ -31,9 +31,9 @@ class Confundo(Spell):
 def studySpell(spell):
     print(spell)
 
-spell = Accio()
-spell.execute()
-studySpell(spell)
+# spell = Accio()
+# spell.execute()
+# studySpell(spell)
 studySpell(Confundo()) # look at how this calls and eventually prints get descriptions
 # look at how it's passed into the spell __str__ method
 

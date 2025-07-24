@@ -16,7 +16,7 @@ run into an inf loop
 
 the jump statements:
 break - The break statement is used to exit the corresponding loop
-continue - The continue statements is used to move to the next iterable in the corresponding loop
+continue - The continue statements is used to move to the next iteration  in the corresponding loop
 
 Other variations of the loops:
 do-while:

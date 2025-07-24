@@ -13,7 +13,7 @@ It works by comparing the average value of the first and the last
 element(which would be the middle value) to the value we want. 
 
 Based on this comparison, we reduce the search spare every time. 
-The search space is reduced by half. Hence it has log(n) time complexity.
+The search space is reduced by half. Hence it has log2(n) time complexity.
 
 General Implementation:
 We use an iterative loop to continusouly reduce the search space to get what we want.
@@ -39,7 +39,7 @@ def bisection_square(n):
     numGuesses = 0
     while (abs(guess**2-n) > epsilon): # inverted of end condition
         # Debug print Statements:
-        print(guess)
+        # print(guess)
         numGuesses +=1 # Guess is always being made when we enter the loop. Therefore, we can count at the top.
         guess = (low+high)/2
         if guess**2 > n: # guess is too high, therefore it actually exists below; change high to current guess
@@ -80,7 +80,7 @@ def bisection_square_frac(n):
     middle = (low+high)/2 # middle is the same as guess var from above
     epsilon = 0.0001  # we need a smaller epsilon value this time
     numGuesses =0
-    while (abs(middle**2 - n) > epsilon): # invertion of end condition
+    while (abs(middle**2 - n) > epsilon) and (middle**2 < n): # invertion of end condition
         if middle**2 > n : # guessed too high; reset high
             high = middle
         else: # guessed too low; reset low
@@ -90,7 +90,31 @@ def bisection_square_frac(n):
 
     return middle, numGuesses
 
-    # you can implement bisection_cube_frac
+def bisectionCubeFraction(n):
+    """Assumes n is a fraction. Returns the cube root of n."""
+    if n ==0:
+        return 0
+    
+    if n <0:
+        isNegative = True
+    else:
+        isNegative = False
+
+    epsilon = 0.000001
+    low = n
+    high = 1
+    middle = (low+high)/2
+
+    while(abs(middle**3-n)>epsilon):
+        if middle**3 > n:
+            high = middle
+        else:
+            low = middle
+        middle = (low+high)/2
+    if isNegative:
+        return -middle
+    else:
+        return middle
 
 if __name__ == "__main__":
     pass

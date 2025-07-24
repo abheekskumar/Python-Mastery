@@ -1,11 +1,11 @@
  # constant complexity:
-
+def constLookup(L):
+    return L[0] # always returns the first element
 
 # logarithmic complexity
 # bisection search, binary search of a list
 def intToStr(i):
     digits = "0123456789"
-
     if i ==0:
         return "0"
     res = ""
@@ -22,14 +22,13 @@ def intToStr(i):
 def addDigits(s):
     val = 0 # constant
     for c in s: # goes through this for size(s)
-        val+= int(c) # constant
+        val += int(c) # constant
     return val # constant
 
 def fact_iter(n):
     prod = 1
     for i in range(1,n+1): # depends on how many times do you go around the loop?
-        prod *=i
-
+        prod *= i
     return prod
 
 
@@ -79,8 +78,6 @@ def intersect(L1,L2):
 O(len(l1)*len(l2)) + O(len(tmp)*O(len(res)))
 assume len(l1) == len(l2); hence len(L1) should also be len(tmp) and res should grow to the same size, but 
 a bit behind right? how would You express that quantitatively?
-
-
 """
 
 def g(n):
@@ -96,7 +93,7 @@ classic n^2 problem
 
 # Exponential Complexity
 # often a recursive function that calls itself, but multiple calls
-# should also be fib?
+# should also be fib
 # generally, in exponential problems, we aim for an approximate solution.
 
 def genSubsets(L)-> list:
@@ -126,15 +123,15 @@ def genSubsets(L) -> list:
     smaller = genSubsets(L[:-1]) # this costs time
     """for a size of "k" elements, we have 2^k possibilities. for each element, we decide ig it's in or not(2 options)
      this then extends to every element(2^(n-1) + 2^(n-2)... to 2(0)) till the base case.
- 
-        """
+    """
+
     last = L[-1:]
     new = []
     for small in smaller: # this costs time
         """ """
         new.append(small+last)
 
-    return smaller+ new
+    return smaller + new
 
     
 

@@ -5,14 +5,18 @@ class Person:
     def __init__(self,name):
         self.name = name
         self.birthdate = None
-        self.lastname = name.split(" ")[-1]
+        self.lastname = name.split()[-1]
     def __str__(self):
         return f"{self.name}: DOB = {self.birthdate}, Lastname = {self.lastname}"\
         
     def __lt__(self,other):
         try:
             assert type(self) == type(other), f"{self.name} and {other.name} must be of Person type"
-        except AttributeError:
+            # this is really stupid, the condition in assert
+            # has to be a valid condition. If the condition itself throws out
+            # an exception, just use the try-except clause bare.
+
+        except AttributeError as e:
             raise TypeError(f"{e} was thrown, make sure to use the same type while comparing.")
         if self.lastname == other.lastname:
             return self.name < other.name # compare name if lastnames are equal

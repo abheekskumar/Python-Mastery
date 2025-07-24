@@ -18,7 +18,7 @@ def iter_while_gcd(a,b):
 
 def recur_gcd(a,b):
     #problem can be defined as taking hcf, continuous division based on remainder
-    if b ==0:
+    if b == 0:
          return a
     
     # recursive case

@@ -29,7 +29,7 @@ if l1 == l3:
 Nested Lists
 if you append a list to a list, you can mutate like hell
 be careful whenever you're changing values; think of all of them as pointers to 
-objects in memory
+objects in memory(because they are)
 """
 
 warm = list(("yellow","Orange"))

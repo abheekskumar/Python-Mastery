@@ -28,8 +28,27 @@ def nr_cube_root(num):
     print(guess)
 
 
+
+numGuesses = 0
+def nr_fourth_root(num: int) -> int:
+    """Finds the fourth root of num. """
+    global numGuesses
+    numGuesses +=1
+    # f(x) = x^4 - num
+    # f'(x) = 4x^3
+    # NR: if g is a guess, g - p(g)/p'(g) is a better guess where p(x) is polynomial of any degree, but one variable.
+    # here p(g) = guess**4 - num
+    # p'(g) = 4*(guess**3)
+    guess = num/2
+    epsilon = 0.1
+    while (abs(guess**4-num) > epsilon):
+        guess -= ((guess**4 - num)/(4*(guess**3)))
+    print(guess,numGuesses)
+
 if __name__ == "__main__":
     #nr_square_root(24)
     #nr_square_root(54)
-    nr_cube_root(27)
-    nr_cube_root(8)
+    # nr_cube_root(27)
+    # nr_cube_root(8)
+    nr_fourth_root(256)
+    

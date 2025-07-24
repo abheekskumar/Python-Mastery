@@ -26,7 +26,8 @@ Use assertions to:
 
 def main1():
     def avg(grades):
-        assert len(grades) != 0, "no grades data"  # assert <condition> , <statement>; assert is opp of if(negated)
+        assert len(grades) != 0, "no grades data"  # assert <condition> , <statement>; 
+        #assert checks the condition and moves on if true, stops if false
         # this raises an AssertionError
         return sum(grades)/len(grades)
 

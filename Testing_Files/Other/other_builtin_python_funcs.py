@@ -19,8 +19,8 @@ l1 = list("Hello world. This is Abheek.")
 l2 = list("*"*len(l1))
 x = zip(l1,l2)
 print(type(x))
-print(dict(x))
-print(tuple(x))
+print(dict(x)) # prints as expected
+print(tuple(x)) # doesn't print anything
 
 # range 
 """
@@ -36,10 +36,15 @@ print(type(r))
 print(list(r))
 print(tuple(r))
 
+def applyFunc(func,L):
+    """ Takes a function and an iterable. Applies the function to each iterable and in place."""
+    for idx in range(len(L)):
+        L[idx] = func(L[idx])
 
-# map
+
+# map: similar to function above, but returns a new list, also has dynamic arguments for function inputs
 """
-map is also lazy
+map is also lazy and consumable
 """
 print("*"*100,"Map:")
 m = map(abs,[2,-23,24,26,-234])
@@ -85,6 +90,10 @@ l2 = copy.copy(l1)
 Creates a new object, copies over the internal structure objects over perfectly
 """
 l3 = copy.deepcopy(l2)
+
+
+
+
 
 # functools
 print("*"*100, "Functools:")

@@ -26,5 +26,27 @@ def secondTowerOfHanoi():
     print(Towers(4,"P1","P2","P3"))
 
 
+
+def TowersOfHanoi():
+    def printInstruction(fr,to):
+        print(f"Move disk from {fr} to {to}.")
+
+    def Towers(n,fr,to,spr):
+
+        # base case:
+        if n == 1:
+            printInstruction(fr,to)
+        else:
+            Towers(n-1,fr,spr,to)
+            Towers(1,fr,to,spr)
+            Towers(n-1,spr,to,fr)
+
+
+
+    ##
+    n = 4
+    Towers(n,"P1","P2","P3")
+
 if __name__ == "__main__":
     secondTowerOfHanoi()
+    TowersOfHanoi()

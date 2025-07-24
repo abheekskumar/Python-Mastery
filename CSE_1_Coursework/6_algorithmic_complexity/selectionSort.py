@@ -1,3 +1,4 @@
+from typing import List
 """
 Selection sort:
 Idea:
@@ -5,6 +6,7 @@ Idea:
 - set it in index 0
 - find the next smallest element in the sublist
 - set it at index 1
+- build the list from the first sorted element to the last(build it from the beginning)
 
 plans:
 recursion??
@@ -20,7 +22,7 @@ when the end of the list is hit, set this at index 0 and start checking for inde
 
 """
 sortTest = []
-def selectionSort1(L):
+def selectionSort1INCORRECT(L):
     # base case
     global sortTest
     if len(L) == 1: # if only one element is left, just return that
@@ -51,15 +53,27 @@ guranteed that the first i elements were sorted
 maybe a bit better than bubblesort time wise.
 """
 
-def selectionSort2(L): 
+def selectionSort1(L): 
     suffixStart = 0 # starting the suffix
     while suffixStart != len(L):
         for idx in range(suffixStart,len(L)): # for all elements in the suffix
             if L[suffixStart] > L[idx]: # if any of those elements are greater
                 L[suffixStart],L[idx] = L[idx],L[suffixStart] # swap
-
         suffixStart +=1 # start checking from the next element onwards
     return L
 
 L = [636,23,523,975,33,62,34,626,63]
-print(selectionSort2(L))
+print(selectionSort1(L))
+
+def selectionSort2(arr: List[int]):
+    """ More efficient traditional implementation of selection sort."""
+    for suffixStart in range(0,len(arr)):
+        minIndex = suffixStart 
+        for idx in range(suffixStart +1, len(arr)): # loop to find min index
+            if arr[minIndex] > arr[idx]:
+                minIndex = idx
+        arr[suffixStart], arr[minIndex] = arr[minIndex], arr[suffixStart] # always suffix start to minIndex value
+
+L = [636,23,523,975,33,62,34,626,63]
+selectionSort2(L)
+print(L)

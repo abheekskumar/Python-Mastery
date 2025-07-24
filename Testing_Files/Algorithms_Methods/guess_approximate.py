@@ -3,12 +3,11 @@
 # time complexity of n(go through all possible sceanarios)
 # In this implementation, you could blow right across the number you're trying to find out. 
 # have measures in place for that too
-def basic_approximate_cube(n):
-    guess = 0
-    for i in range(n):
+def basic_cube(n):
+    for guess in range(1,n+1):
         if guess**3 == n:
             print(guess)
-        guess +=1
+            break
 
 def approximate_cube(n):
     guess = 0
@@ -18,6 +17,7 @@ def approximate_cube(n):
     while abs(guess**3-n) > epsilon:
         if guess**3 == n:
             print(guess)
+            break
         guess +=increment
         numGuesses +=1
     print(guess,numGuesses)

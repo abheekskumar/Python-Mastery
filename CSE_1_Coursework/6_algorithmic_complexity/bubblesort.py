@@ -14,25 +14,26 @@ return list
 O(n(n-1)) = O(n^2)
 """
 
-def bubbleSort_WRONG_(L):
+def bubbleSort(L):
     for idx1 in range(0,len(L)):
-        for idx2 in range(1,len(L)-idx1): # doesn't make sense, this doesn't compare values next to each
-            if L[idx1] > L[idx2]: # compare
-                L[idx1],L[idx2] = L[idx2],L[idx1] # swap
-
+        for idx2 in range(1,len(L)-idx1):
+            if L[idx2-1] > L[idx2]: # compare
+                L[idx2-1],L[idx2] = L[idx2],L[idx2-1] # swap
     return L
-def bubbleSort1(L):
+
+ar = [2,6,1,6,34,2345,72,43,673,32]
+# print(bubbleSort(ar))
+
+
+def bubbleSort1(L): # this is not bubble sort, it's something else
+    """This implementation sorts the list from the beginning."""
     for idx1 in range(0,len(L)):
         for idx2 in range(idx1+1,len(L)): # for each ele, compare the next one till the end
             # if any of them are smaller than the current element, swap them
             # stops at len(L), the range doesn't produce any values in that case
-            # print(L)
             if L[idx1] > L[idx2]: # compare
                 L[idx1],L[idx2] = L[idx2],L[idx1] # swap
-
     return L
-
-
 """
 Course Bubble sort implementation
 - compare consequtive pairs of elements
@@ -55,18 +56,32 @@ O(n^2)
 """
 
 def bubbleSort2(L):
-    swap = False
-    while not swap: # loop to stop when done O(len(L))
-        swap = True # assume no swap this iteration
-        for ele in range(1,len(L)): # loop to keep track of comparisons O(len(L))
-            print(L)
-            if L[ele-1] > L[ele]: # compare
+    swap = True # assume swap needs to happen to start loop
+    while swap: # loop to stop when done O(len(L))
+        swap = False # assume no swap this iteration
+        for ele in range(0,len(L)-1): # loop to keep track of comparisons O(len(L))
+            if L[ele] > L[ele+1]: # compare
                 # swap
                 swap = True
-                L[ele-1],L[ele] = L[ele], L[ele-1]
-
+                L[ele],L[ele+1] = L[ele+1], L[ele]
     return L
 
-L = [636,23,523,975,33,62,34,626,63]
-# print(bubbleSort1(L))
-print(bubbleSort2(L))
+print(bubbleSort1(ar))
+print(bubbleSort2(ar))
+
+def modSwapSort(L): 
+    """ L is a list on integers """
+    print("Original L: ", L)
+    for i in range(len(L)):
+        for j in range(len(L)):
+            if L[j] < L[i]:
+                # the next line is a short 
+                # form for swap L[i] and L[j]
+                L[j], L[i] = L[i], L[j] 
+                # print(L)
+
+    print("Final L: ", L)
+    
+# L = [636,23,523,975,33,62,34,626,63]
+# print(modSwapSort(L))
+    

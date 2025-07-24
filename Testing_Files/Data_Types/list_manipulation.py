@@ -87,7 +87,10 @@ l3 = l2[:] # slicing returns a "copy" in a new memory loc
 print(id(l3))
 l5 = list(l2) # copied
 print(id(l5))
-l4 = l2.copy() # copying 
+l4 = l2.copy() # copying , but it's a shallow copy(poninters are copied)
+# where the elements of l2 are exposed to be mutable by the elements of L4
+# to bypass this, is rare cases, you would use a deep copy, which
+# copies over everything, creating copies of nested lists too.
 print(id(l4))
 
 # Aliasing a list:

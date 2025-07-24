@@ -18,6 +18,28 @@ def isin(char,aStr):
         else: # force char > aStr[middle]
             return isin(char,aStr[:middle]) # middle is already not included in search space due to exclusion of slicing
 
+
+
+def isIn(char,aStr):
+    high = len(aStr)
+    middle = high//2
+    
+    # base cases
+    if char == aStr[middle]: 
+        return True
+
+    if len(aStr) == 1:
+        return char == aStr
+    
+    
+    # recursive case
+    if aStr[middle] > char:
+        # too high
+        return isIn(char,aStr[:middle])
+    else:
+        return isIn(char,aStr[middle+1:])
+
+
 if __name__ == "__main__":
     char = "a"
     aStr = "bbcdkkknortuuvw"

@@ -18,6 +18,8 @@ class Queue():
             return self.queue[0]
         except Exception:
             return "Queue is empty"
+        
+
 q1 = Queue()
 q1.enqueue(23)
 q1.enqueue(65)
@@ -54,3 +56,11 @@ print("Functional Approach:")
 print(queueDequeue(q2))
 print("*")
 print(q2)
+
+
+# using collections module
+from collections import deque
+q3 = deque()
+q3.append() # enque
+q3.popleft() # deque
+q3[0] # front

@@ -81,10 +81,10 @@ def guess_num():
     n1 = 1
     n2 = 6
     chosenNum = rd.randint(n1,n2)
-    chances = 0
+    chances = 5
     won = False
-    while chances <=5:
-        chances +=1
+    while chances >1:
+        chances-=1
         userNum = int(input(f"Enter a number between {n1} and {n2}:"))
         assert userNum in range(1,7), "Invalid Input!"
         if userNum == chosenNum:
@@ -96,6 +96,6 @@ def guess_num():
     else:
         print(f"You ran out of guesses. The number was {chosenNum}")
     if won:
-        print(f"You won with {6-chances} chances left.")
+        print(f"You won with {chances} chances left.")
 
 guess_num()

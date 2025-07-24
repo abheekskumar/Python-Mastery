@@ -18,7 +18,7 @@ class Gradebook:
         return result # return one string
     
     def sort(self)-> None:
-            """Sorts the internal representation of students by lexigographical order."""
+            """Sorts the internal representation of students by alphabetical order."""
             self.students.sort()
             self.isSorted = True
     # student setter

@@ -1,5 +1,5 @@
 """
-Functions are reffered to as "first class objects":
+Functions are referred to as "first class objects":
     They have types
     can be elements of data structures like lists
     can appear in expressions
@@ -14,8 +14,8 @@ def applyToEach(L,f):
     for e in range(len(L)):
         L[e] = f(L[e])
 
-    applyToEach(L,abs) 
-    applyToEach(L,int)
+applyToEach(L,abs) 
+applyToEach(L,int)
 # Doing something to each element of a list using a function.
 
 
