@@ -26,6 +26,7 @@ def mergeSort(L):
         result = []
         i = 0
         j = 0
+
         while ((i < len(L1)) and (j < len(L2))):
             if L1[i] > L2[j]:
                 result.append(L2[j])
@@ -37,10 +38,10 @@ def mergeSort(L):
         while (i < len(L1)):
             result.append(L1[i])
             i += 1
+
         while (j < len(L2)):
             result.append(L2[j])
             j += 1
-
         return result
     def mergeSortRecur(L):
         """ If len(L) > 2, splits into half and recurs. returns the merge list at each cascading level."""

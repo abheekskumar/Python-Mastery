@@ -92,7 +92,7 @@ def insertionSort(arr:List[int])->list:
 
         while((idx2 >=0) and (arr[idx2] > key)): # loop used to shift elements NOTE: ensure that idx2>=0 condition is checked first
             arr[idx2+1] = arr[idx2] # shifting elements to the right
-            idx2 -=1
+            idx2 -= 1
         # when 1st element or key is bigger than the element in the subarray, we've found the appropriate spot
         arr[idx2+1] = key # add key to subarray, idx2+1 is used since we've subtracted it on the last iteration in the loop
             # note: the idx2+1 spot is kept at the spot that is non-essential, and can be written over

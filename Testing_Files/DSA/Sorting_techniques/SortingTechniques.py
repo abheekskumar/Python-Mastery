@@ -111,7 +111,26 @@ def mergeSort1(arr: List[int])-> List[int]:
     return mergeSortRecur(arr)
 
 
+# quick sort:
+def quickSort(arr: List[int]) -> List[int]:
+    if len(arr) < 2:
+        return arr[:]
+    
+    pivot = len(arr)*3//4
+    smaller = []
+    equal = []
+    larger = []
 
+    for ele in arr:
+        if ele < arr[pivot]:
+            smaller.append(ele)
+        elif ele > arr[pivot]:
+            larger.append(ele)
+        else: # == case
+            equal.append(ele)
+
+    return quickSort(smaller) + equal + quickSort(larger)
+    
     
 
 
